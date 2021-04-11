@@ -1,10 +1,9 @@
 import Layout from "../components/Layout";
-
-
+const YOUTUBE_API_KEY="AIzaSyA4kLs86LH5wju2eQcB9U4sITK_QABqWVY"; 
 const YOUTUBE_PLAYLIST_ITEMS_API = 'https://www.googleapis.com/youtube/v3/playlistItems';
 
 export async function getServerSideProps() {
-  const res = await fetch(`${YOUTUBE_PLAYLIST_ITEMS_API}?part=snippet&maxResults=50&playlistId=PLP0VKwznPGgmoid17azk8uzbV0nXRJvWe&key=${process.env.YOUTUBE_API_KEY}`)
+  const res = await fetch(`${YOUTUBE_PLAYLIST_ITEMS_API}?part=snippet&maxResults=50&playlistId=PLP0VKwznPGgmoid17azk8uzbV0nXRJvWe&key=${YOUTUBE_API_KEY}`)
   const data = await res.json();
   return {
     props: {
